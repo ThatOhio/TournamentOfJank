@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jank Ban List Helper</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Font Icon and Plugins -->
+    <link href="assets/font/fa/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/font/tello/css/fontello.css" rel="stylesheet">
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="assets/css/animation.css" rel="stylesheet">
+    <!-- Theme of Design -->
+    <link href="assets/css/style.css" rel="stylesheet">   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="assets/images/B.ico">
+    <link rel="apple-touch-icon" sizes="129x129" href="assets/images/B.ico">
+    
+    <link href="assets/css/yourcss.css" rel="stylesheet">    
+  </head>
+  <body>
+    <!-- =========
+    Start Wrapper Page
+    ===================================-->
+    <div id="wrapper">
+      <div class="container" >
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+
+            <!-- =========
+            Start portrait section
+            ===================================-->
+            <header class="portrait">
+              <div class="bg-line"></div>
+              <div class="body-portrait">
+
+                <!-- =========
+                Start Note Slider
+                ===================================-->
+                <div class="box-note">
+                  <div id="slider-note" class="carousel slide" data-ride="carousel" data-interval="10000">
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        Paste your moxfield decklist below in text form
+                        (click "Bulk Edit" and copy the Mainboard)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- =========
+                End Note Slider
+                ===================================-->
+
+                <div class="box-block">
+                  <div class="form-group">
+                    <label for="deck-list">Message</label>
+                    <textarea class="form-control" rows="8" id="deck-list" placeholder="Enter Deck List"></textarea>
+                  </div>
+
+                  <a href="javascript:void(0)" class="btn btn-flat " id="deck-check">Check for banned cards</a>
+                </div>
+
+                <div id="banned-cards-section" style="display: none;">
+                  <H2 style="color: darkred;">The following cards appear on the tournament ban list</H2>
+                  <br />
+
+                  <ul id="banned-cards-list">
+                    <!--<li>Perspiciatis unde omnis iste.</li>
+                    <li>Natus sit voluptatem accusantium.</li>
+                    <li>Laudantium, totam rem aperiam.</li>
+                    <li>Eaque ipsa quae ab illo inventore veritatis.</li>-->
+                  </ul>
+                </div>
+
+                <div id="all-good" style="display: none;">
+                  <H2 style="color: darkgreen;">Your deck does not contain any banned cards</H2>
+                </div>
+
+
+              </div>
+            </header>
+            <!-- =========
+            End portrait section
+            ===================================-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- =========
+    End Wrapper Page
+    ===================================-->
+
+    <!-- =========
+    Text Showup Wait Document Ready
+    ===================================-->
+    <div id="wait-page" class="text-center">Loading...</div>
+
+    <!-- =========
+    Link Config Custom styles
+    ===================================-->
+
+    <a href="modal_configuration.html" class="configuration ajax_link"><i class="fa fa-cog"></i> Configuration</a>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true"> </div>
+
+
+
+    <!-- =========
+    Javascript load 
+    ===================================-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- jQuery animation page loader -->
+    <script src='assets/js/pace.min.js'></script>
+
+    <!-- JS maps for gmap3 JavaScript plugins) -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.autofix_anything.js"></script>
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <script src='assets/js/gmap3.min.js'></script>
+
+    <script src='assets/js/jquery.magnific-popup.min.js'></script>
+
+    <!-- Configuration app js -->
+    <script src="assets/js/app.js"></script>
+
+    <script>
+      let banList = "1 Akroma's Memorial #Tribal Synergy\n" +
+              "1 Austere Command #Board Wipe\n" +
+              "1 Boros Charm #Protection\n" +
+              "1 Eradicator Valkyrie #Angel\n" +
+              "1 Ruinous Ultimatum #Board Wipe\n" +
+              "1 Serra's Emissary #Angel\n" +
+              "1 Swiftfoot Boots #Protection\n" +
+              "1 Swords to Plowshares #Interaction\n" +
+              "1 Unbreakable Formation #Protection";
+    </script>
+
+  <script>
+    function createListItem(content) {
+      let toReturn = document.createElement("li");
+      toReturn.appendChild(document.createTextNode(content));
+      return toReturn;
+    };
+
+    function scrub(deckList) {
+      let toReturn = deckList.replace(/^[\d-]*\s*/gm, '');
+      toReturn = toReturn.replace(/#.*$/gm, '');
+      return toReturn;
+    }
+
+    $(window).load(function() {
+      $('#deck-check').click(function() {
+        //TODO: Check banned cards
+        let bannedList = $('#banned-cards-list');
+        let deckList = $('#deck-list').val();
+        let deckIsGood = true;
+
+        deckList = scrub(deckList);
+
+        // TODO: Go get ban list, then cross reference
+        let banListArray = scrub(banList).split("\n");
+        let deckListArray = deckList.split("\n");
+        let bannedCardsInDeck = [];
+
+        console.log(banListArray);
+        console.log(deckListArray);
+
+        // For each banned card, check if the deck has that card
+        for (let bannedCardIndex in banListArray){
+          let bannedCard = banListArray[bannedCardIndex];
+          console.log(bannedCard);
+
+          if (deckListArray.indexOf(bannedCard) > -1){
+            bannedCardsInDeck.push(bannedCard);
+          }
+        }
+
+        console.log(bannedCardsInDeck);
+
+        for (let cardToShowIndex in bannedCardsInDeck){
+          // If there are any banned cards, the deck is not good.
+          deckIsGood = false;
+
+          let cardToShow = bannedCardsInDeck[cardToShowIndex];
+          bannedList.append(createListItem(cardToShow));
+        }
+
+        if (deckIsGood) {
+          $("#all-good").show();
+        } else {
+          $("#banned-cards-section").show();
+        }
+
+      });
+    });
+  </script>
+
+  </body>
+</html>
