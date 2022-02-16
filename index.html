@@ -128,15 +128,253 @@
     <script src="assets/js/app.js"></script>
 
     <script>
-      let banList = "1 Akroma's Memorial #Tribal Synergy\n" +
-              "1 Austere Command #Board Wipe\n" +
-              "1 Boros Charm #Protection\n" +
-              "1 Eradicator Valkyrie #Angel\n" +
-              "1 Ruinous Ultimatum #Board Wipe\n" +
-              "1 Serra's Emissary #Angel\n" +
-              "1 Swiftfoot Boots #Protection\n" +
-              "1 Swords to Plowshares #Interaction\n" +
-              "1 Unbreakable Formation #Protection";
+      let banList = "1 Abolish #Free Spells\n" +
+              "1 Abrade #cEDH Staples\n" +
+              "1 Abrupt Decay #cEDH Staples\n" +
+              "1 Ad Nauseam #cEDH Staples\n" +
+              "1 Allosaurus Shepherd #cEDH Staples\n" +
+              "1 Ancient Tomb #cEDH Staples\n" +
+              "1 Animate Dead #cEDH Staples\n" +
+              "1 Arbor Elf #cEDH Staples\n" +
+              "1 Arcane Signet #Top 10 Colorless\n" +
+              "1 Archon of Emeria #cEDH Staples\n" +
+              "1 Assassin's Trophy #cEDH Staples\n" +
+              "1 Austere Command #Top 10 White\n" +
+              "1 Autumn's Veil #cEDH Staples\n" +
+              "1 Avacyn's Pilgrim #cEDH Staples\n" +
+              "1 Aven Mindcensor #cEDH Staples\n" +
+              "1 Badlands #cEDH Staples\n" +
+              "1 Bayou #cEDH Staples\n" +
+              "1 Beast Within #Top 10 Green\n" +
+              "1 Birds of Paradise #Top 10 Green\n" +
+              "1 Birgi, God of Storytelling / Harnfel, Horn of Bounty #cEDH Staples\n" +
+              "1 Blasphemous Act #Top 10 Red\n" +
+              "1 Blood Artist #Top 10 Black\n" +
+              "1 Bloom Tender #cEDH Staples\n" +
+              "1 Bounty of the Hunt #Free Spells\n" +
+              "1 Brain Freeze #cEDH Staples\n" +
+              "1 Brainstorm #Top 10 Blue\n" +
+              "1 Cabal Ritual #cEDH Staples\n" +
+              "1 Carpet of Flowers #cEDH Staples\n" +
+              "1 Cave-In #Free Spells\n" +
+              "1 Cavern of Souls #cEDH Staples\n" +
+              "1 Cephalid Coliseum #cEDH Staples\n" +
+              "1 Chain of Vapor #cEDH Staples\n" +
+              "1 Chaos Warp #Top 10 Red\n" +
+              "1 Chord of Calling #cEDH Staples\n" +
+              "1 Chrome Mox #Fast Mana\n" +
+              "1 City of Brass #cEDH Staples\n" +
+              "1 City of Traitors #cEDH Staples\n" +
+              "1 Collector Ouphe #cEDH Staples\n" +
+              "1 Commander's Sphere #Top 10 Colorless\n" +
+              "1 Contagion #Free Spells\n" +
+              "1 Counterspell #Top 10 Blue\n" +
+              "1 Crop Rotation #cEDH Staples\n" +
+              "1 Culling Ritual #cEDH Staples\n" +
+              "1 Culling the Weak #cEDH Staples\n" +
+              "1 Cultivate #Top 10 Green\n" +
+              "1 Cyclonic Rift #Top 10 Blue\n" +
+              "1 Dark Confidant #cEDH Staples\n" +
+              "1 Dark Ritual #Top 10 Black\n" +
+              "1 Dauthi Voidwalker #cEDH Staples\n" +
+              "1 Deadly Rollick #Free Spells\n" +
+              "1 Deafening Silence #cEDH Staples\n" +
+              "1 Deathrite Shaman #cEDH Staples\n" +
+              "1 Deflecting Swat #Top 10 Red\n" +
+              "1 Delay #cEDH Staples\n" +
+              "1 Demonic Consultation #cEDH Staples\n" +
+              "1 Demonic Tutor #Top 10 Black\n" +
+              "1 Destiny Spinner #cEDH Staples\n" +
+              "1 Diabolic Intent #cEDH Staples\n" +
+              "1 Dispel #cEDH Staples\n" +
+              "1 Dockside Extortionist #Top 10 Red\n" +
+              "1 Dragon's Rage Channeler #cEDH Staples\n" +
+              "1 Dramatic Reversal #cEDH Staples\n" +
+              "1 Drannith Magistrate #cEDH Staples\n" +
+              "1 Dualcaster Mage #cEDH Staples\n" +
+              "1 Eladamri's Call #cEDH Staples\n" +
+              "1 Eldritch Evolution #cEDH Staples\n" +
+              "1 Elves of Deep Shadow #cEDH Staples\n" +
+              "1 Elvish Mystic #cEDH Staples\n" +
+              "1 Elvish Spirit Guide #cEDH Staples\n" +
+              "1 Emergence Zone #cEDH Staples\n" +
+              "1 Endurance #Free Spells\n" +
+              "1 Enlightened Tutor #Top 10 White\n" +
+              "1 Entomb #cEDH Staples\n" +
+              "1 Esper Sentinel #Top 10 White\n" +
+              "1 Eternal Witness #Top 10 Green\n" +
+              "1 Faithless Looting #Top 10 Red\n" +
+              "1 Farseek #Top 10 Green\n" +
+              "1 Feed the Swarm #Top 10 Black\n" +
+              "1 Fellwar Stone #Top 10 Colorless\n" +
+              "1 Fierce Guardianship #Free Spells\n" +
+              "1 Final Fortune #cEDH Staples\n" +
+              "1 Finale of Devastation #cEDH Staples\n" +
+              "1 Flameshot #Free Spells\n" +
+              "1 Flawless Maneuver #Free Spells\n" +
+              "1 Flusterstorm #cEDH Staples\n" +
+              "1 Foil #Free Spells\n" +
+              "1 Forbidden Orchard #cEDH Staples\n" +
+              "1 Force of Despair #Free Spells\n" +
+              "1 Force of Negation #Free Spells\n" +
+              "1 Force of Rage #Free Spells\n" +
+              "1 Force of Vigor #Free Spells\n" +
+              "1 Force of Virtue #Free Spells\n" +
+              "1 Force of Will #Free Spells\n" +
+              "1 Fury #Free Spells\n" +
+              "1 Fyndhorn Elves #cEDH Staples\n" +
+              "1 Gaea's Cradle #cEDH Staples\n" +
+              "1 Gamble #Top 10 Red\n" +
+              "1 Gemstone Caverns #cEDH Staples\n" +
+              "1 Generous Gift #Top 10 White\n" +
+              "1 Ghostly Prison #Top 10 White\n" +
+              "1 Gilded Drake #cEDH Staples\n" +
+              "1 Gitaxian Probe #cEDH Staples\n" +
+              "1 Grand Abolisher #cEDH Staples\n" +
+              "1 Green Sun's Zenith #cEDH Staples\n" +
+              "1 Grief #Free Spells\n" +
+              "1 Grim Monolith #cEDH Staples\n" +
+              "1 Grinding Station #cEDH Staples\n" +
+              "1 Heroic Intervention #Top 10 Green\n" +
+              "1 Homeward Path #cEDH Staples\n" +
+              "1 Ignoble Hierarch #cEDH Staples\n" +
+              "1 Imperial Recruiter #cEDH Staples\n" +
+              "1 Imperial Seal #cEDH Staples\n" +
+              "1 Intervention Pact #Free Spells\n" +
+              "1 Intuition #cEDH Staples\n" +
+              "1 Isochron Scepter #cEDH Staples\n" +
+              "1 Jeska's Will #Top 10 Red\n" +
+              "1 Jeweled Lotus #Fast Mana\n" +
+              "1 Kodama's Reach #Top 10 Green\n" +
+              "1 Lightning Greaves #Top 10 Colorless\n" +
+              "1 Lim-Dûl's Vault #cEDH Staples\n" +
+              "1 Lion's Eye Diamond #cEDH Staples\n" +
+              "1 Llanowar Elves #Top 10 Green\n" +
+              "1 Lotus Petal #Fast Mana\n" +
+              "1 Malevolent Hermit / Benevolent Geist #cEDH Staples\n" +
+              "1 Mana Confluence #cEDH Staples\n" +
+              "1 Mana Crypt #Top 10 Colorless\n" +
+              "1 Mana Drain #Top 10 Blue\n" +
+              "1 Mana Vault #Fast Mana\n" +
+              "1 Mental Misstep #cEDH Staples\n" +
+              "1 Merchant Scroll #cEDH Staples\n" +
+              "1 Mind Stone #Top 10 Colorless\n" +
+              "1 Miscast #cEDH Staples\n" +
+              "1 Misdirection #Free Spells\n" +
+              "1 Mox Amber #Fast Mana\n" +
+              "1 Mox Diamond #Fast Mana\n" +
+              "1 Mox Opal #Fast Mana\n" +
+              "1 Muddle the Mixture #cEDH Staples\n" +
+              "1 Mystic Remora #Top 10 Blue\n" +
+              "1 Mystical Tutor #Top 10 Blue\n" +
+              "1 Narset, Parter of Veils #cEDH Staples\n" +
+              "1 Nature's Claim #cEDH Staples\n" +
+              "1 Necromancy #cEDH Staples\n" +
+              "1 Necropotence #cEDH Staples\n" +
+              "1 Negate #Top 10 Blue\n" +
+              "1 Neoform #cEDH Staples\n" +
+              "1 Noble Hierarch #cEDH Staples\n" +
+              "1 Notion Thief #cEDH Staples\n" +
+              "1 Noxious Revival #cEDH Staples\n" +
+              "1 Null Rod #cEDH Staples\n" +
+              "1 Nurturing Peatland #cEDH Staples\n" +
+              "1 Obscuring Haze #Free Spells\n" +
+              "1 Opposition Agent #cEDH Staples\n" +
+              "1 Outbreak #Free Spells\n" +
+              "1 Pact of Negation #Free Spells\n" +
+              "1 Pact of the Titan #Free Spells\n" +
+              "1 Path to Exile #Top 10 White\n" +
+              "1 Peer into the Abyss #cEDH Staples\n" +
+              "1 Phantasmal Image #cEDH Staples\n" +
+              "1 Phyrexian Arena #Top 10 Black\n" +
+              "1 Phyrexian Tower #cEDH Staples\n" +
+              "1 Plateau #cEDH Staples\n" +
+              "1 Ponder #Top 10 Blue\n" +
+              "1 Praetor's Grasp #cEDH Staples\n" +
+              "1 Preordain #cEDH Staples\n" +
+              "1 Priest of Titania #cEDH Staples\n" +
+              "1 Pyroblast #cEDH Staples\n" +
+              "1 Pyrokinesis #Free Spells\n" +
+              "1 Ragavan, Nimble Pilferer #cEDH Staples\n" +
+              "1 Rain of Filth #cEDH Staples\n" +
+              "1 Rampant Growth #Top 10 Green\n" +
+              "1 Ranger-Captain of Eos #cEDH Staples\n" +
+              "1 Reanimate #Top 10 Black\n" +
+              "1 Red Elemental Blast #Top 10 Red\n" +
+              "1 Reverent Mantra #Free Spells\n" +
+              "1 Rhystic Study #Top 10 Blue\n" +
+              "1 Rite of Flame #cEDH Staples\n" +
+              "1 Sakura-Tribe Elder #Top 10 Green\n" +
+              "1 Savannah #cEDH Staples\n" +
+              "1 Scars of the Veteran #Free Spells\n" +
+              "1 Scrubland #cEDH Staples\n" +
+              "1 Sensei's Divining Top #cEDH Staples\n" +
+              "1 Serra Ascendant #cEDH Staples\n" +
+              "1 Sevinne's Reclamation #cEDH Staples\n" +
+              "1 Shatterskull Smashing / Shatterskull, the Hammer Pass #cEDH Staples\n" +
+              "1 Silence #cEDH Staples\n" +
+              "1 Simian Spirit Guide #cEDH Staples\n" +
+              "1 Skullclamp #Top 10 Colorless\n" +
+              "1 Skyclave Apparition #cEDH Staples\n" +
+              "1 Slaughter Pact #Free Spells\n" +
+              "1 Smothering Tithe #Top 10 White\n" +
+              "1 Snag #Free Spells\n" +
+              "1 Snap #cEDH Staples\n" +
+              "1 Sol Ring #Top 10 Colorless\n" +
+              "1 Solemn Simulacrum #Top 10 Colorless\n" +
+              "1 Solitude #Free Spells\n" +
+              "1 Solve the Equation #cEDH Staples\n" +
+              "1 Spell Pierce #cEDH Staples\n" +
+              "1 Spellseeker #cEDH Staples\n" +
+              "1 Spire of Industry #cEDH Staples\n" +
+              "1 Springleaf Drum #cEDH Staples\n" +
+              "1 Subtlety #Free Spells\n" +
+              "1 Summoner's Pact #Free Spells\n" +
+              "1 Sun Titan #Top 10 White\n" +
+              "1 Survival of the Fittest #cEDH Staples\n" +
+              "1 Swan Song #Top 10 Blue\n" +
+              "1 Swiftfoot Boots #Top 10 Colorless\n" +
+              "1 Swords to Plowshares #Top 10 White\n" +
+              "1 Sylvan Library #cEDH Staples\n" +
+              "1 Sylvan Safekeeper #cEDH Staples\n" +
+              "1 Taiga #cEDH Staples\n" +
+              "1 Tainted Pact #cEDH Staples\n" +
+              "1 Talisman of Creativity #cEDH Staples\n" +
+              "1 Talisman of Dominance #cEDH Staples\n" +
+              "1 Talisman of Indulgence #cEDH Staples\n" +
+              "1 Talisman of Progress #cEDH Staples\n" +
+              "1 Tarnished Citadel #cEDH Staples\n" +
+              "1 Teferi's Protection #Top 10 White\n" +
+              "1 Thassa's Oracle #cEDH Staples\n" +
+              "1 Thrasios, Triton Hero #cEDH Staples\n" +
+              "1 Thrill of Possibility #Top 10 Red\n" +
+              "1 Timetwister #cEDH Staples\n" +
+              "1 Tinder Wall #cEDH Staples\n" +
+              "1 Toxic Deluge #Top 10 Black\n" +
+              "1 Transmute Artifact #cEDH Staples\n" +
+              "1 Tropical Island #cEDH Staples\n" +
+              "1 Tundra #cEDH Staples\n" +
+              "1 Twinflame #cEDH Staples\n" +
+              "1 Tymna the Weaver #cEDH Staples\n" +
+              "1 Underground Sea #cEDH Staples\n" +
+              "1 Underworld Breach #cEDH Staples\n" +
+              "1 Unmask *F* #Free Spells\n" +
+              "1 Urza's Saga #cEDH Staples\n" +
+              "1 Utopia Sprawl #cEDH Staples\n" +
+              "1 Vampiric Tutor #Top 10 Black\n" +
+              "1 Vandalblast #Top 10 Red\n" +
+              "1 Veil of Summer #cEDH Staples\n" +
+              "1 Vine Dryad #Free Spells\n" +
+              "1 Viscera Seer #Top 10 Black\n" +
+              "1 Volcanic Island #cEDH Staples\n" +
+              "1 Wheel of Fortune #cEDH Staples\n" +
+              "1 Wheel of Misfortune #cEDH Staples\n" +
+              "1 Wild Growth #cEDH Staples\n" +
+              "1 Windfall #cEDH Staples\n" +
+              "1 Wishclaw Talisman #cEDH Staples\n" +
+              "1 Worldly Tutor #cEDH Staples\n" +
+              "1 Yawgmoth's Will #cEDH Staples\n" +
+              "1 Zulaport Cutthroat #Top 10 Black";
     </script>
 
   <script>
