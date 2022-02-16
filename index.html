@@ -399,21 +399,27 @@
 
         deckList = scrub(deckList);
 
+
         // TODO: Go get ban list, then cross reference
         let banListArray = scrub(banList).split("\n");
         let deckListArray = deckList.split("\n");
         let bannedCardsInDeck = [];
 
         console.log(banListArray);
-        console.log(deckListArray);
 
         // For each banned card, check if the deck has that card
         for (let bannedCardIndex in banListArray){
           let bannedCard = banListArray[bannedCardIndex];
-          console.log(bannedCard);
+          bannedCard = bannedCard.trim();
 
-          if (deckListArray.indexOf(bannedCard) > -1){
-            bannedCardsInDeck.push(bannedCard);
+          for (let cardInDeckIndex in deckListArray){
+            let cardInDeck = deckListArray[cardInDeckIndex];
+            cardInDeck = cardInDeck.trim();
+
+            if (cardInDeck.toUpperCase() === bannedCard.toUpperCase()){
+              bannedCardsInDeck.push(bannedCard);
+              break;
+            }
           }
         }
 
